@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Quadros Coimbra | Portfólio</title>
+    <!-- Importação da biblioteca p5.js para rodar seu jogo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --text-color: #c5c6c7;
+            --accent-color: #00ffb4;
+            --accent-dim: #45f3ff;
+            --card-bg: #1f2833;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Topo / Cabeçalho */
+        header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid #1f2833;
+            padding-bottom: 30px;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--accent-dim);
+            margin-bottom: 15px;
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: #86c232;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-color);
+            transition: color 0.2s;
+        }
+
+        .meta-info a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Seções Gerais */
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Área do Jogo / Container do Canvas */
+        .game-wrapper {
+            background-color: #05050f;
+            border: 2px solid var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-instructions {
+            width: 100%;
+            max-width: 400px;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+            border-top: 1px solid #1f2833;
+            padding-top: 10px;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--card-bg);
+            color: #ffffff;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* Listas / Formação */
+        .education-item {
+            border-left: 2px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 15px;
+        }
+
+        .education-item h3 {
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid #1f2833;
+            padding-top: 20px;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Rafael Quadros Coimbra</h1>
+        <p>Análise e Desenvolvimento de Sistemas</p>
+        <div class="meta-info">
+            <span>📍 São Paulo, Brasil</span>
+            <a href="mailto:seu-email@provedor.com">✉️ E-mail</a>
+            <a href="#" target="_blank">🔗 LinkedIn</a>
+            <a href="#" target="_blank">🐙 GitHub</a>
+        </div>
+    </header>
+
+    <!-- SOBRE MIM -->
+    <section id="about">
+        <h2>Sobre Mim</h2>
+        <p>
+            Olá! Sou o Rafael. Atualmente curso <strong>Análise e Desenvolvimento de Sistemas</strong> na <strong>Universidade Anhanguera (Unidade Vila Mariana)</strong>. Desenvolvo projetos focados em arquitetura de código, lógica de computação gráfica aplicada e manipulação de estados em tempo real.
+        </p>
+        <p>
+            Busco constantemente conectar a base teórica acadêmica com desafios computacionais práticos, priorizando performance, legibilidade e manutenibilidade estrutural em software.
+        </p>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projects">
+        <h2>Projetos em Destaque</h2>
+        <div style="margin-bottom: 25px;">
+            <h3>🕹️ Neon Snake (Arcade Engine)</h3>
+            <p style="margin-top: 10px;">
+                Um jogo estilo arcade procedural construído nativamente com JavaScript. O ecossistema inclui um motor de renderização baseado em matrizes bidimensionais, manipulação persistente e local de dados via <code>localStorage</code>, sistema dinâmico de partículas e efeitos vetoriais simulando iluminação Neon.
+            </p>
+        </div>
+
+        <!-- O Jogo renderiza dinamicamente dentro desta div -->
+        <div class="game-wrapper">
+            <div id="canvas-container"></div>
+            <div class="game-instructions">
+                <strong>Controles:</strong> Use as Setas do Teclado para mover. <br>
+                [Espaço] Confirma/Reinicia | [B] Abre a Loja | [ESC] Voltar ao Menu
+            </div>
+        </div>
+
+        <div class="tech-tags">
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">p5.js Engine</span>
+            <span class="tag">Web Storage API</span>
+            <span class="tag">Data Structures</span>
+        </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="education">
+        <h2>Formação Acadêmica</h2>
+        <div class="education-item">
+            <h3>Universidade Anhanguera — Vila Mariana</h3>
+            <p>Graduação Tecnológica em Análise e Desenvolvimento de Sistemas</p>
+            <small style="color: #666;">Em andamento</small>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Concebido minimalistamente. Desenvolvido com 💻 por Rafael Quadros Coimbra.</p>
+    </footer>
+
+</div>
+
+<!-- ENGINE LOGIC (SEU CÓDIGO DO JOGO) -->
+<script>
+// === VARIÁVEIS GLOBAIS ATUALIZADAS ===
+var cobra, comida, estrela = []; 
+var escala = 20;
+var direcao = 'right';
+var inputBuffer = []; 
+var pontos = 0;
+var nomeJogador = ""; 
+var corSelecionada;
+var estadoJogo = "LOGIN"; 
+var particulas = [], poeiraFundo = [], cobraMenu = [], rastroNeon = [];
+var tremor = 0;
+var velocidadePadrao = 10;
+var dirMenu = 'right';
+
+var portal = null;
+var tempoPortal = 0;
+var naOutraDimensao = false;
+var tempoDimensao = 0;
+var pontosParaPortal = 0; 
+
+var powerUpAtivo = null; 
+var tempoPowerUp = 0;
+var powerUpNoMapa = null;
+
+// --- DADOS INICIAIS ---
+var perfis = {
+  "Rafael": { 
+    recorde: 1500, 
+    equipados: { cabeca: "Coroa", rosto: "Nenhum", efeito: "Aura de Fogo", corpo: "Nenhum" } 
+  }
+};
+
+var coresDisponiveis = [
+  { nome: 'Verde', cor: '#00ffb4' }, { nome: 'Azul', cor: '#00d4ff' }, { nome: 'Rosa', cor: '#ff00d4' },
+  { nome: 'Branco', cor: '#ffffff' }, { nome: 'Amarelo', cor: '#ffff00' }, { nome: 'Vermelho', cor: '#ff4d4d' }
+];
+
+var equipados = { cabeca: "Nenhum", rosto: "Nenhum", efeito: "Nenhum", corpo: "Nenhum" };
+var maiorRecorde = 0;
+
+var biblioteca = [
+  { nome: "Nenhum", custo: 0, tipo: "reset", icone: "❌" },
+  { nome: "Óculos Dark", custo: 30, tipo: "rosto", icone: "🕶️" },
+  { nome: "Boné de Lado", custo: 60, tipo: "cabeca", icone: "🧢" },
+  { nome: "Skin Maçã", custo: 180, tipo: "corpo", icone: "🍎" },
+  { nome: "Skin Sushi", custo: 300, tipo: "corpo", icone: "🍣" },
+  { nome: "Cartola", custo: 400, tipo: "cabeca", icone: "🎩" },
+  { nome: "Skin Ciborgue", custo: 550, tipo: "corpo", icone: "🤖" },
+  { nome: "Rastro Neon", custo: 700, tipo: "efeito", icone: "🌈" },
+  { nome: "Skin Tatuagem", custo: 1000, tipo: "corpo", icone: "🖋️" },
+  { nome: "Máscara Ninja", custo: 1200, tipo: "rosto", icone: "🥷" },
+  { nome: "Coroa", custo: 1500, tipo: "cabeca", icone: "👑" },
+  { nome: "Aura de Fogo", custo: 2000, tipo: "efeito", icone: "🔥" }
+];
+
+function setup() {
+  // Ajustando o Canvas para acoplar perfeitamente na div do Portfólio
+  let canvas = createCanvas(400, 600);
+  canvas.parent('canvas-container');
+  
+  let salvos = localStorage.getItem("snakePerfis_v7");
+  if (salvos) perfis = Object.assign(perfis, JSON.parse(salvos));
+  corSelecionada = color(coresDisponiveis[0].cor);
+  for (let i = 0; i < 40; i++) poeiraFundo.push({ x: random(width), y: random(height), v: random(0.2, 0.5), t: random(1, 3) });
+  for (let i = 0; i < 8; i++) cobraMenu.push(createVector(100 - i * escala, 300));
+  inicializarJogo();
+}
+
+function draw() {
+  if (tremor > 0) { translate(random(-tremor, tremor), random(-tremor, tremor)); tremor *= 0.9; }
+  if (naOutraDimensao) background(20, 0, 40); else background(5, 5, 15);
+  noStroke(); fill(255, 60);
+  for (let p of poeiraFundo) { ellipse(p.x, p.y, p.t); p.y += (naOutraDimensao ? p.v * 2 : p.v); if (p.y > height) p.y = 0; }
+
+  switch (estadoJogo) {
+    case "LOGIN": desenharTelaLogin(); break;
+    case "MENU": desenharMenu(); break;
+    case "JOGANDO": rodarJogo(); break;
+    case "GAMEOVER": desenharGameOver(); break;
+    case "BIBLIOTECA": desenharBiblioteca(); break;
+  }
+  atualizarParticulas();
+  desenharRastroEspecial();
+}
+
+function rodarJogo() {
+  let velAtual = (powerUpAtivo === "Gelo") ? velocidadePadrao / 2 : velocidadePadrao;
+  frameRate(velAtual); 
+  
+  if (portal) { tempoPortal -= 1/velAtual; if (tempoPortal <= 0) portal = null; }
+  
+  if (naOutraDimensao) { 
+    tempoDimensao -= 1/velAtual; 
+    if (tempoDimensao <= 0) { naOutraDimensao = false; estrela = []; }
+    while (estrela.length < 2) { estrela.push(posicionarAleatorio()); }
+  }
+
+  if (tempoPowerUp > 0) { tempoPowerUp -= 1/velAtual; if (tempoPowerUp <= 0) powerUpAtivo = null; }
+  
+  if (inputBuffer.length > 0) {
+    let p = inputBuffer.shift();
+    if ((p==='up'&&direcao!=='down')||(p==='down'&&direcao!=='up')||(p==='left'&&direcao!=='right')||(p==='right'&&direcao!=='left')) direcao=p;
+  }
+
+  let prox = cobra[0].copy();
+  if (direcao === 'right') prox.x += escala; else if (direcao === 'left') prox.x -= escala;
+  else if (direcao === 'up') prox.y -= escala; else if (direcao === 'down') prox.y += escala;
+  
+  if (prox.x < 0 || prox.x >= width || prox.y < 40 || prox.y >= height || colidiu(prox)) { finalizarJogo(); return; }
+  
+  if (powerUpAtivo === "Ima") {
+      if (dist(prox.x, prox.y, comida.x, comida.y) < escala * 3) {
+          if (comida.x < prox.x) comida.x += escala; else if (comida.x > prox.x) comida.x -= escala;
+          if (comida.y < prox.y) comida.y += escala; else if (comida.y > prox.y) comida.y -= escala;
+      }
+  }
+
+  cobra.unshift(prox);
+
+  if (powerUpNoMapa && prox.x === powerUpNoMapa.x && prox.y === powerUpNoMapa.y) { powerUpAtivo = powerUpNoMapa.tipo; tempoPowerUp = 6; criarParticulas(powerUpNoMapa.x, powerUpNoMapa.y, color(0, 255, 255)); powerUpNoMapa = null; }
+  if (portal && prox.x === portal.x && prox.y === portal.y) entrarNaOutraDimensao();
+
+  if (prox.x === comida.x && prox.y === comida.y) { 
+    let ganho = naOutraDimensao ? 50 : 10; 
+    pontos += ganho;
+    
+    if (!naOutraDimensao) { 
+        pontosParaPortal += ganho; 
+        if (pontosParaPortal >= 150) { portal = posicionarAleatorio(); tempoPortal = 7; pontosParaPortal = 0; } 
+    }
+    
+    if (!powerUpNoMapa && random(1) < 0.15) { let sorte = random(1); powerUpNoMapa = posicionarAleatorio(); powerUpNoMapa.tipo = sorte < 0.5 ? "Gelo" : "Ima"; }
+    criarParticulas(comida.x, comida.y, naOutraDimensao ? color(200, 0, 255) : color(255, 50, 50)); 
+    posicionarComida();
+    if (!naOutraDimensao && random(1) < 0.1 && estrela.length < 1) { estrela.push(posicionarAleatorio()); }
+    
+  } else {
+    let coletouEstrela = false;
+    for (let i = estrela.length - 1; i >= 0; i--) {
+        if (prox.x === estrela[i].x && prox.y === estrela[i].y) {
+            pontos += naOutraDimensao ? 80 : 50; 
+            criarParticulas(estrela[i].x, estrela[i].y, color(255, 215, 0)); 
+            estrela.splice(i, 1); 
+            tremor = 5;
+            coletouEstrela = true;
+            break;
+        }
+    }
+    if (!coletouEstrela) cobra.pop(); 
+  }
+
+  desenharGrade(); 
+  if (portal) desenharPortal(); 
+  if (powerUpNoMapa) desenharPowerUpMapa(); 
+  desenharMaca(comida.x, comida.y); 
+  for (let e of estrela) { desenharEstrela(e.x, e.y); }
+
+  for (let i = 0; i < cobra.length; i++) {
+    let tamReduzido = map(i, 0, cobra.length, 0, 6); let tamFinal = escala - tamReduzido; let offset = (escala - tamFinal) / 2;
+    if (i === 0) { desenharCabecaDinamica(cobra[i].x, cobra[i].y); } else {
+        if (equipados.corpo !== "Nenhum") { desenharSkinEspecial(cobra[i].x + offset, cobra[i].y + offset, tamFinal, equipados.corpo); } else {
+            if (equipados.efeito === "Rastro Neon" || naOutraDimensao) { drawingContext.shadowBlur = naOutraDimensao ? 15 : 8; drawingContext.shadowColor = corSelecionada.toString(); }
+            fill(corSelecionada); rect(cobra[i].x + offset, cobra[i].y + offset, tamFinal, tamFinal, 4); drawingContext.shadowBlur = 0;
+        }
+    }
+    if (equipados.efeito === "Rastro Neon") rastroNeon.push({ x: cobra[i].x + escala/2, y: cobra[i].y + escala/2, vida: 100 });
+  }
+
+  fill(255, 180); textAlign(LEFT); textSize(13); text(`PONTOS: ${pontos}`, 20, 25);
+  if (powerUpAtivo) { fill(0, 255, 255); text(`POWER-UP: ${powerUpAtivo.toUpperCase()} (${ceil(tempoPowerUp)}s)`, 120, 25); }
+  if (naOutraDimensao) { fill(200, 100, 255); textAlign(CENTER); text(`DIMENSÃO X: ${ceil(tempoDimensao)}s`, width/2, 25); }
+  textAlign(RIGHT); fill(255, 215, 0, 180); text(`RECORDE: ${max(maiorRecorde, pontos)}`, width - 20, 25);
+}
+
+function entrarNaOutraDimensao() { 
+    naOutraDimensao = true; 
+    tempoDimensao = 10; 
+    portal = null; 
+    tremor = 15; 
+    estrela = []; 
+    criarParticulas(cobra[0].x, cobra[0].y, color(200, 100, 255)); 
+}
+
+function inicializarJogo() { 
+    cobra = [createVector(200, 260), createVector(180, 260), createVector(160, 260)]; 
+    direcao = 'right'; inputBuffer = []; pontos = 0; posicionarComida(); estrela = []; portal = null; naOutraDimensao = false; pontosParaPortal = 0; powerUpAtivo = null; powerUpNoMapa = null;
+}
+
+function mouseClicked() {
+  if (mouseX < 0 || mouseX > width || mouseY < 0 || mouseY > height) return; // Fora do canvas, ignora.
+
+  if (estadoJogo === "LOGIN") {
+    if (mouseX > width/2 - 110 && mouseX < width/2 + 110 && mouseY > height/2 - 25 && mouseY < height/2 + 25) {
+      let n = prompt("Quem está jogando hoje? (Dica: Digite Rafael para acessar a conta padrão)");
+      if (n && n.trim() !== "") { carregarPerfil(n.trim()); estadoJogo = "MENU"; }
+    }
+  } else if (estadoJogo === "MENU") {
+    if (mouseX > width/2 - 110 && mouseX < width/2 + 110 && mouseY > 247 && mouseY < 292) { inicializarJogo(); estadoJogo = "JOGANDO"; }
+    if (mouseX > width/2 - 110 && mouseX < width/2 + 110 && mouseY > 305 && mouseY < 345) { estadoJogo = "BIBLIOTECA"; }
+    if (mouseX > width/2 - 110 && mouseX < width/2 + 110 && mouseY > 355 && mouseY < 395) { nomeJogador = ""; estadoJogo = "LOGIN"; }
+    let espaco = 45;
+    for(let i = 0; i < coresDisponiveis.length; i++) {
+      let xC = (width/2 - (coresDisponiveis.length * espaco)/2) + i * espaco + 22;
+      if (dist(mouseX, mouseY, xC, 190) < 20) corSelecionada = color(coresDisponiveis[i].cor);
+    }
+  } else if (estadoJogo === "BIBLIOTECA") {
+    for (let i = 0; i < biblioteca.length; i++) {
+      let it = biblioteca[i]; let yP = 100 + i * 40;
+      if (mouseX > 40 && mouseX < width - 40 && mouseY > yP - 20 && mouseY < yP + 20) {
+        if (maiorRecorde >= it.custo) {
+          if (it.tipo === "reset") equipados = { cabeca: "Nenhum", rosto: "Nenhum", efeito: "Nenhum", corpo: "Nenhum" };
+          else equipados[it.tipo] = it.nome;
+          salvarDados();
+        }
+      }
+    }
+  }
+}
+
+function desenharTelaLogin() {
+  cursor(ARROW); atualizarCobraMenu(); desenharCobraMenu();
+  textAlign(CENTER); fill(corSelecionada); textSize(42); textStyle(BOLD); text("NEON SNAKE", width / 2, height/2 - 120);
+  fill(255); textSize(18); textStyle(NORMAL); text("BEM-VINDO, PILOTO", width/2, height/2 - 60);
+  desenharBotaoMenu(width/2, height/2, 220, 50, "DIGITAR MEU NOME");
+  desenharRanking(height/2 + 100);
+}
+
+function carregarPerfil(nome) {
+  let nomeExiste = Object.keys(perfis).find(k => k.toLowerCase() === nome.toLowerCase());
+  if (nomeExiste) {
+    nomeJogador = nomeExiste;
+  } else {
+    nomeJogador = nome;
+    perfis[nomeJogador] = { recorde: 0, equipados: { cabeca: "Nenhum", rosto: "Nenhum", efeito: "Nenhum", corpo: "Nenhum" } };
+  }
+  equipados = perfis[nomeJogador].equipados;
+  maiorRecorde = perfis[nomeJogador].recorde;
+}
+
+function salvarDados() {
+  if (!nomeJogador) return;
+  perfis[nomeJogador].recorde = max(perfis[nomeJogador].recorde, pontos);
+  perfis[nomeJogador].equipados = equipados;
+  localStorage.setItem("snakePerfis_v7", JSON.stringify(perfis));
+  maiorRecorde = perfis[nomeJogador].recorde;
+}
+
+function desenharMenu() {
+  cursor(ARROW); atualizarCobraMenu(); desenharCobraMenu();
+  textAlign(CENTER); fill(corSelecionada); textSize(32); textStyle(BOLD); text("NEON SNAKE", width / 2, 60);
+  fill(255); text(`CONTA: ${nomeJogador.toUpperCase()}`, width / 2, 100);
+  fill(255, 150); textSize(12); text(`RECORDE PESSOAL: ${perfis[nomeJogador].recorde} PTS`, width / 2, 118);
+  fill(255); textSize(14); text("COR DA COBRA", width/2, 160);
+  let espaco = 45;
+  for(let i = 0; i < coresDisponiveis.length; i++) {
+    let xC = (width/2 - (coresDisponiveis.length * espaco)/2) + i * espaco + 22;
+    let estaCor = color(coresDisponiveis[i].cor);
+    let selecionada = (corSelecionada.toString() === estaCor.toString());
+    stroke(selecionada ? 255 : 50); fill(estaCor); rect(xC - 15, 175, 30, 30, 5);
+  }
+  noStroke();
+  desenharBotaoMenu(width/2, 270, 220, 45, "INICIAR (ESPAÇO)");
+  desenharBotaoMenu(width/2, 325, 220, 40, "LOJA (B)");
+  desenharBotaoMenu(width/2, 375, 220, 40, "SAIR DA CONTA (ESC)");
+  desenharRanking(470);
+}
+
+function desenharBotaoMenu(x, y, w, h, txt) {
+  let sobre = (mouseX > x - w/2 && mouseX < x + w/2 && mouseY > y - h/2 && mouseY < y + h/2);
+  push(); translate(x, y);
+  if (sobre) { cursor(HAND); fill(corSelecionada); } else { noFill(); stroke(corSelecionada); }
+  rect(-w/2, -h/2, w, h, 8); fill(sobre ? 0 : 255); noStroke();
+  textSize(12); textStyle(BOLD); text(txt, 0, 5);
+  pop();
+}
+
+function finalizarJogo() { tremor = 20; salvarDados(); estadoJogo = "GAMEOVER"; estrela = []; portal = null; naOutraDimensao = false; pontosParaPortal = 0; powerUpAtivo = null; powerUpNoMapa = null; }
+
+function desenharGameOver() {
+  background(0, 220); textAlign(CENTER);
+  fill(255, 50, 50); textSize(40); textStyle(BOLD); text("FIM DE JOGO", width/2, height/2 - 40);
+  fill(255); textSize(20); textStyle(NORMAL); text(`PONTOS: ${pontos}`, width/2, height/2 + 5);
+  textSize(14); fill(200); text("ESPAÇO: Reiniciar | ESC: Menu", width/2, height/2 + 60);
+}
+
+function keyPressed() {
+  if (estadoJogo === "MENU") {
+    if (keyCode === 32) { inicializarJogo(); estadoJogo = "JOGANDO"; }
+    if (key === 'b' || key === 'B') estadoJogo = "BIBLIOTECA";
+    if (keyCode === ESCAPE) { nomeJogador = ""; estadoJogo = "LOGIN"; }
+  } else if (estadoJogo === "JOGANDO") {
+    if (keyCode === UP_ARROW) inputBuffer.push('up');
+    if (keyCode === DOWN_ARROW) inputBuffer.push('down');
+    if (keyCode === LEFT_ARROW) inputBuffer.push('left');
+    if (keyCode === RIGHT_ARROW) inputBuffer.push('right');
+  } else if (estadoJogo === "GAMEOVER" || estadoJogo === "BIBLIOTECA") {
+    if (keyCode === ESCAPE) estadoJogo = "MENU";
+    if (estadoJogo === "GAMEOVER" && keyCode === 32) { inicializarJogo(); estadoJogo = "JOGANDO"; }
+  }
+}
+
+function desenharBiblioteca() {
+  background(10, 10, 30); textAlign(CENTER); fill(0, 255, 255); textSize(20); text("LOJA", width / 2, 40);
+  for (let i = 0; i < biblioteca.length; i++) {
+    let it = biblioteca[i]; let yP = 100 + i * 40;
+    let bloqueado = maiorRecorde < it.custo;
+    let jaEquipado = (equipados[it.tipo] === it.nome);
+    fill(jaEquipado ? [0, 100, 0] : (bloqueado ? 30 : 60)); rect(40, yP-20, width-80, 32, 5);
+    fill(255); textAlign(LEFT); text(`${it.icone} ${it.nome}`, 60, yP);
+    textAlign(RIGHT); if(bloqueado) text(`🔒 ${it.custo}`, width-60, yP); else text(jaEquipado ? "USANDO" : "EQUIPAR", width-60, yP);
+  }
+  fill(200); textAlign(CENTER); text("ESC PARA VOLTAR", width/2, height-20);
+}
+
+function colidiu(pos) { return cobra.some((p, i) => i !== 0 && p.x === pos.x && p.y === pos.y); }
+function posicionarAleatorio() { let c = width/escala, r = (height-120)/escala; return createVector(floor(random(c))*escala, 60+floor(random(r))*escala); }
+function posicionarComida() { comida = posicionarAleatorio(); }
+
+function atualizarCobraMenu() {
+  if (frameCount % 10 !== 0) return;
+  if (random(1) < 0.1) dirMenu = random(['up', 'down', 'left', 'right']);
+  let c = cobraMenu[0].copy();
+  if (dirMenu === 'right') c.x += escala; else if (dirMenu === 'left') c.x -= escala;
+  else if (dirMenu === 'up') c.y -= escala; else if (dirMenu === 'down') c.y += escala;
+  if (c.x < 0) c.x = width; if (c.x > width) c.x = 0; if (c.y < 0) c.y = height; if (c.y > height) c.y = 0;
+  cobraMenu.unshift(c); cobraMenu.pop();
+}
+function desenharCobraMenu() { noStroke(); fill(red(corSelecionada), green(corSelecionada), blue(corSelecionada), 40); for (let p of cobraMenu) rect(p.x, p.y, escala-2, escala-2, 4); }
+function atualizarParticulas() { for (let i = particulas.length - 1; i >= 0; i--) { let p = particulas[i]; p.pos.add(p.vel); p.vida -= 10; fill(red(p.cor), green(p.cor), blue(p.cor), p.vida); circle(p.pos.x, p.pos.y, 3); if (p.vida <= 0) particulas.splice(i, 1); } }
+function criarParticulas(x,y,c) { for(let i=0; i<10; i++) particulas.push({pos:createVector(x,y), vel:p5.Vector.random2D().mult(random(1,4)), vida:255, cor:c}); }
+function desenharRanking(y) {
+  let rk = Object.keys(perfis).map(n => ({ n, r: perfis[n].recorde })).filter(p => p.r > 0).sort((a, b) => b.r - a.r);
+  fill(255, 215, 0, 200); textStyle(BOLD); textSize(16); text("🏆 RANKING LOCAL 🏆", width/2, y);
+  textStyle(NORMAL); textSize(14);
+  for (let i = 0; i < min(rk.length, 5); i++) {
+    if (rk[i].n === nomeJogador) fill(corSelecionada); else fill(255, 150);
+    text(`${i + 1}. ${rk[i].n} — ${rk[i].r} pts`, width/2, y + 25 + i * 20);
+  }
+}
+
+function desenharGrade() { 
+    stroke(naOutraDimensao ? color(100, 0, 200, 50) : 15); 
+    for(let i=0; i<width; i+=escala) line(i,40,i,height); 
+    for(let i=40; i<height; i+=escala) line(0,i,width,i); 
+}
+
+function desenharMaca(x, y) {
+  push(); translate(x + escala/2, y + escala/2);
+  let pulsacao = sin(frameCount * 0.1) * 2;
+  drawingContext.shadowBlur = naOutraDimensao ? 15 : 10;
+  drawingContext.shadowColor = naOutraDimensao ? "purple" : "red";
+  fill(naOutraDimensao ? [150, 0, 255] : [255, 50, 50]); noStroke();
+  ellipse(0, 0, (escala-4) + pulsacao); fill(50, 150, 50); rect(-2, -escala/2, 4, 6, 2);
+  pop();
+}
+
+function desenharRastroEspecial() {
+    for (let i = rastroNeon.length - 1; i >= 0; i--) {
+        let r = rastroNeon[i];
+        noStroke(); fill(red(corSelecionada), green(corSelecionada), blue(corSelecionada), r.vida);
+        ellipse(r.x, r.y, map(r.vida, 0, 100, 1, 8));
+        r.vida -= 8; if (r.vida <= 0) rastroNeon.splice(i, 1);
+    }
+}
+
+function desenharPortal() {
+    push(); translate(portal.x + escala/2, portal.y + escala/2);
+    rotate(frameCount * 0.1);
+    drawingContext.shadowBlur = 20; drawingContext.shadowColor = "cyan";
+    noFill(); stroke(0, 255, 255, 200); strokeWeight(3);
+    ellipse(0, 0, escala * 1.5, escala * 0.8);
+    pop();
+}
+
+function desenharPowerUpMapa() {
+    push(); translate(powerUpNoMapa.x + escala/2, powerUpNoMapa.y + escala/2);
+    let corP = powerUpNoMapa.tipo === "Gelo" ? color(0, 200, 255) : color(255, 255, 255);
+    drawingContext.shadowBlur = 10; drawingContext.shadowColor = corP.toString();
+    fill(corP); noStroke(); rotate(frameCount * 0.05);
+    if (powerUpNoMapa.tipo === "Gelo") rect(-6, -6, 12, 12, 2);
+    else { ellipse(0, 0, 12, 12); fill(0); ellipse(0, 0, 6, 6); }
+    pop();
+}
+
+function desenharEstrela(x, y) {
+  push(); translate(x + escala/2, y + escala/2);
+  drawingContext.shadowBlur = 15; drawingContext.shadowColor = "yellow";
+  fill(255, 215, 0); noStroke();
+  let r = 8 + sin(frameCount * 0.2) * 2;
+  beginShape();
+  for (let i = 0; i < 5; i++) {
+    let angle = TWO_PI * i / 5 - HALF_PI;
+    let sx = cos(angle) * r; let sy = sin(angle) * r; vertex(sx, sy);
+    angle += TWO_PI / 10; sx = cos(angle) * (r/2); sy = sin(angle) * (r/2); vertex(sx, sy);
+  }
+  endShape(CLOSE); pop();
+}
+
+function desenharCabecaDinamica(x, y) {
+  push(); translate(x + escala/2, y + escala/2);
+  if (direcao === 'left') rotate(PI); else if (direcao === 'up') rotate(-HALF_PI); else if (direcao === 'down') rotate(HALF_PI);
+  if (frameCount % 20 < 10) { stroke(255, 50, 50); strokeWeight(2); line(10, 0, 18, 0); line(18, 0, 21, -3); line(18, 0, 21, 3); }
+  if(equipados.efeito === "Rastro Neon" || naOutraDimensao) { drawingContext.shadowBlur = 15; drawingContext.shadowColor = corSelecionada.toString(); }
+  fill(corSelecionada); noStroke(); rect(-escala/2, -escala/2, escala, escala, 5);
+  desenharAcessorios();
+  if (equipados.rosto !== "Máscara Ninja") { fill(255); ellipse(3, -5, 6, 6); ellipse(3, 5, 6, 6); fill(0); ellipse(4, -5, 3, 3); ellipse(4, 5, 3, 3); }
+  else { fill(255); rect(2, -6, 2, 4); rect(2, 2, 2, 4); }
+  pop();
+}
+
+function desenharSkinEspecial(x, y, t, tipo) {
+    push(); translate(x + t/2, y + t/2);
+    if (tipo === "Skin Maçã") { fill(200, 20, 20); noStroke(); ellipse(0, 0, t-2, t); fill(50, 150, 50); rect(-1, -t/2, 2, t/3); } 
+    else if (tipo === "Skin Sushi") { fill(255); stroke(0); strokeWeight(1); rect(-t/2, -t/2, t, t, 2); fill(255, 100, 0); noStroke(); rect(-t/4, -t/4, t/2, t/2, 1); }
+    else if (tipo === "Skin Ciborgue") { noFill(); stroke(0, 255, 255); strokeWeight(2); ellipse(0, 0, t, t); fill(0, 255, 255, 150); noStroke(); ellipse(0, 0, (t/2) + sin(frameCount * 0.2) * 2); }
+    else if (tipo === "Skin Tatuagem") { fill(240, 220, 200); stroke(30); strokeWeight(1); rect(-t/2, -t/2, t, t, 3); stroke(0); noFill(); line(-t/4, -t/4, t/4, t/4); ellipse(0, 0, t/3); }
+    pop();
+}
+
+function desenharAcessorios() {
+  if (equipados.efeito === "Aura de Fogo") { fill(255, 100, 0, 150); noStroke(); for(let i=0; i<5; i++) ellipse(random(-10, 10), random(-10, 10), 10); }
+  if (equipados.cabeca === "Boné de Lado") { fill(255, 0, 0); rect(-12, -12, 14, 8); rect(-14, -8, 20, 4); }
+  if (equipados.cabeca === "Cartola") { fill(20); rect(-8, -22, 16, 16); rect(-12, -8, 24, 4); }
+  if (equipados.cabeca === "Coroa") { fill(255, 215, 0); triangle(-10, -8, -10, -18, -5, -10); triangle(-5, -10, 0, -20, 5, -10); triangle(5, -10, 10, -18, 10, -8); rect(-10, -8, 20, 4); }
+  if (equipados.rosto === "Óculos Dark") { fill(0); rect(2, -8, 5, 16); stroke(0); line(2, -4, -10, -4); line(2, 4, -10, 4); }
+  if (equipados.rosto === "Máscara Ninja") { fill(30); rect(-escala/2, -escala/2, escala, escala, 5); fill(240, 220, 200); rect(0, -6, 8, 12); }
+}
+</script>
+</body>
+</html>
